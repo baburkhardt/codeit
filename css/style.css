@@ -13,7 +13,7 @@ url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&displ
   src: url('digital-7.ttf');
 }
 body{
-  background-color: #003da7;
+  background-color: #0A2240;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -95,8 +95,8 @@ height: 50px;
 .start{background-color: #6ab04c;}
 .stop{background-color: #30336b;}
 .reset{background-color:  #eb4d4b;}
-.one{background-color:  #54C9E8; gap: 3px;}
-.two{background-color:  #54C9E8; gap: 3px;}
+.one{background-color:  #898c8d; gap: 3px;}
+.two{background-color:  #898c8d; gap: 3px;}
 
 .start-active,
 .stop-active{
