@@ -90,7 +90,8 @@ height: 50px;
 .start{background-color: #6ab04c;}
 .stop{background-color: #30336b;}
 .reset{background-color:  #eb4d4b;}
-
+.one{background-color:  #003da7;}
+.two{background-color:  #003da7;}
 
 .start-active,
 .stop-active{
