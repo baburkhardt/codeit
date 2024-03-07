@@ -53,6 +53,11 @@ body{
   gap: 3px;
 }
 
+.framei{
+  display: flex;
+  gap: 4px;
+}
+
 h3{
   font-weight: 500;
   color:#130f40;
