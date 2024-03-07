@@ -20,6 +20,48 @@ body{
   justify-content: center;
   align-items: center;
 }
+
+.textbox{
+  background-color: #fff;
+  height: 600px;
+  width: 400px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 
+0px 0px 8px;
+}
+
+.stattextbox{
+  background-color: #fff;
+  height: 400px;
+  width: 400px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  user-select: none;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 
+0px 0px 8px;
+}
+
+.logodiv{
+
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  user-select: none;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 
+0px 0px 8px;
+}
+
 .box{
   background-color: #fff;
   height: 200px;
@@ -34,6 +76,40 @@ body{
   box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 
 0px 0px 8px;
 }
+
+.wp{
+
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 
+0px 0px 8px;
+}
+
+.centered{
+ display: flex;
+
+}
+
+.columns{
+ display: flex;
+
+}
+
+.rcol{
+ display: inline;
+
+}
+.lcol{
+ display: inline;
+
+}
+
+
 
 .boxi{
   background-color: #fff;
