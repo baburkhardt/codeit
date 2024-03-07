@@ -50,8 +50,15 @@ const ctx = canvas.getContext('2d');
     
 // Resizes the canvas to the available size of the window. 
 function resize(){ 
-  ctx.canvas.width = window.innerWidth; 
-  ctx.canvas.height = window.innerHeight; 
+  //ctx.canvas.width = window.innerWidth; 
+  //ctx.canvas.height = window.innerHeight; 
+
+  //ctx.canvas.width = document.getElementById('drawb').innerWidth; 
+  //ctx.canvas.height = document.getElementById('drawb').innerHeight;
+ 
+  ctx.canvas.width = 600; 
+  ctx.canvas.height = 600; 
+
 } 
     
 // Stores the initial position of the cursor 
