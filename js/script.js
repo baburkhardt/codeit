@@ -5,21 +5,41 @@ const btnReset=document.querySelector('.reset');
 
 let hrs=min=sec=ms=0,startTimer;
 
+let currtime=prevtime=0;
+ 
+let timerrunning =0; 
+let charcount = 0;
+
 
 const handleKeyboard = event => {
-  if (event.key === '/') console.log('The ’/’ key was pressed');
-startrun();
+  //if (event.key === '/') console.log('The ’/’ key was pressed');
+if (!timerrunning){
+ startrun();
+}
+
+if (charcount ==0){
+	prevtime=currtime;
+} 
+charcount++;
+
+//document.getElementById("stb").value+=str(charcount)+"\t"+event.key+"\t"+str(currtime-prevtime)+"\n";
+document.getElementById("stb").value+=charcount+"\t"+event.key+"\t"+(currtime-prevtime)+"ms\n";
+prevtime=currtime;
+
 }
 
 
 
-
-
 function startrun(){
+
+  timerrunning = 1;
+
   btnStart.classList.add('start-active');
   btnStop.classList.remove('stop-active');
 
   startTimer=setInterval(()=>{
+    currtime++;
+
     ms++;//ms=ms+1;
     if(ms==100){
       sec++;
@@ -51,7 +71,7 @@ btnStop.addEventListener('click',()=>{
   clearInterval(startTimer);
   btnStart.classList.remove('start-active');
   btnStop.classList.add('stop-active');
-
+  timerrunning = 0;
 });
 
 btnReset.addEventListener('click',()=>{
@@ -60,6 +80,13 @@ btnReset.addEventListener('click',()=>{
   updateDisplay();
   btnStart.classList.remove('start-active');
   btnStop.classList.remove('stop-active');
+
+  timerrunning = 0;
+  document.getElementById("tb").value="";
+  document.getElementById("stb").value="";
+  charcount = 0;
+  currtime=prevtime=0;
+
 });
 
 
