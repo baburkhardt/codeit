@@ -23,7 +23,7 @@ if (charcount ==0){
 charcount++;
 
 //document.getElementById("stb").value+=str(charcount)+"\t"+event.key+"\t"+str(currtime-prevtime)+"\n";
-document.getElementById("stb").value+=charcount+"\t"+event.key+"\t"+(currtime-prevtime)+"ms\n";
+document.getElementById("stb").value+=charcount+"\t"+event.key+"\t"+(currtime-prevtime)+"\n";
 prevtime=currtime;
 
 }
