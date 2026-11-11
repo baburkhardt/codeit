@@ -16,26 +16,6 @@
       height: auto;
       aspect-ratio: 1 / 1;
     }
-    /* Layout container for side-by-side canvas & legend */
-    .draw-workspace {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .legend-box {
-      background-color: #f1f5f9;
-      padding: 14px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      color: #1e293b;
-      border: 1px solid #cbd5e1;
-      line-height: 1.6;
-      max-width: 240px;
-      width: 100%;
-    }
   </style>
 </head>
 <body class="sandbox-page">
@@ -50,30 +30,33 @@
           <b style="color: #ffffff;">Draw anything you want!</b>
         </div>
         <hr class="draw-divider">
+        
+        <!-- Canvas Container -->
+        <div id="drawb" class="drawbox" style="display: flex; justify-content: center;">
+          <canvas id="canvas"></canvas>
+        </div>
 
-        <!-- Workspace: Canvas on Left, Compact Legend on Right -->
-        <div class="draw-workspace">
+        <!-- Clear Button Controls -->
+        <div class="draw-controls" style="display: flex; justify-content: center; margin-bottom: 15px;">
+          <input type="button" id="clear" value="Clear Canvas" class="clear-btn">
+        </div>
+
+        <!-- Two-Column Keyboard Controls Legend Box at Bottom -->
+        <div style="background-color: #f1f5f9; padding: 14px 18px; border-radius: 8px; font-size: 0.85rem; color: #1e293b; width: 100%; border: 1px solid #cbd5e1; line-height: 1.6; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
           
-          <!-- Left Side: Canvas & Clear Button -->
-          <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
-            <div id="drawb" class="drawbox">
-              <canvas id="canvas"></canvas>
-            </div>
-            <div class="draw-controls" style="width: 100%; display: flex; justify-content: center;">
-              <input type="button" id="clear" value="Clear Canvas" class="clear-btn">
-            </div>
+          <!-- Left Column: Colors -->
+          <div style="flex: 1; min-width: 210px;">
+            <strong>Colors (Press 0–6):</strong><br>
+            <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">0</kbd> Black &nbsp;|&nbsp; <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">1</kbd> Red &nbsp;|&nbsp; <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">2</kbd> Orange<br>
+            <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">3</kbd> Yellow &nbsp;|&nbsp; <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">4</kbd> Green<br>
+            <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">5</kbd> Blue &nbsp;|&nbsp; <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">6</kbd> Violet
           </div>
 
-          <!-- Right Side: Concise Legend Box -->
-          <div class="legend-box">
-            <strong>Controls:</strong><br><br>
-            <strong>Colors (0–6):</strong><br>
-            <kbd>0</kbd> Black | <kbd>1</kbd> Red | <kbd>2</kbd> Orange<br>
-            <kbd>3</kbd> Yellow | <kbd>4</kbd> Green<br>
-            <kbd>5</kbd> Blue | <kbd>6</kbd> Violet<br><br>
-            <strong>Thickness:</strong><br>
-            <kbd>&lt;</kbd> Thin (3px)<br>
-            <kbd>&gt;</kbd> Thick (15px)
+          <!-- Right Column: Line Thickness -->
+          <div style="flex: 1; min-width: 150px;">
+            <strong>Line Thickness:</strong><br>
+            <kbd style="background:#e2e8f0; padding:2px 6px; border-radius:4px;">&lt;</kbd> Thin (3px)<br>
+            <kbd style="background:#e2e8f0; padding:2px 6px; border-radius:4px;">&gt;</kbd> Thick (15px)
           </div>
 
         </div>
