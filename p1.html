@@ -4,64 +4,64 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>DMACC IT - Type Sandbox (P1)</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="sandbox-page">
 
-
-<br>
-
-<div class="centered">
-<div class="columns">
-
-<div class="lcol">
-<div class="textbox">
-
-<label for="tb" class="ltb">Type in the box:</label>
-<br>
-
-<textarea id="tb" name="tb" rows="20" cols="52">
-</textarea>
-
-</div>
-</div>
-<div class="rcol">
-    <div class="box">
-      <h3>The Official DMACC Stopwatch</h3>
-      <div class="frame">
-        <div class="hrs">00</div>
-        <div class="colon">:</div>
-        <div class="min">00</div>
-        <div class="colon">:</div>
-        <div class="sec">00</div>   
-        <div class="colon">:</div>
-        <div class="ms">00</div>
+  <div class="sandbox-container">
+    
+    <!-- Main Content Grid -->
+    <div class="sandbox-grid">
+      
+      <!-- Left Column: Typing Box -->
+      <div class="col-left">
+        <div class="textbox-card">
+          <label for="tb" class="ltb">Type in the box:</label>
+          <textarea id="tb" name="tb" rows="22" cols="45"></textarea>
+        </div>
       </div>
-      <div class="buttons">
-        <button class="start">Start</button>
-        <button class="stop">Stop</button>
-        <button class="reset">Reset</button>
+
+      <!-- Right Column: Stopwatch & Data Log -->
+      <div class="col-right">
+        
+        <!-- Stopwatch Box -->
+        <div class="stopwatch-card">
+          <h3>Official DMACC Stopwatch</h3>
+          <div class="frame">
+            <div class="hrs">00</div>
+            <div class="colon">:</div>
+            <div class="min">00</div>
+            <div class="colon">:</div>
+            <div class="sec">00</div>
+            <div class="colon">:</div>
+            <div class="ms">00</div>
+          </div>
+          <div class="buttons">
+            <button class="start">Start</button>
+            <button class="stop">Stop</button>
+            <button class="reset">Reset</button>
+          </div>
+        </div>
+
+        <!-- Data Box -->
+        <div class="statbox-card">
+          <label for="stb" class="stb">Data:</label>
+          <textarea id="stb" name="stb" rows="10" cols="45"></textarea>
+        </div>
+
       </div>
     </div>
-<div class="statbox">
-<div class="stattextbox">
 
-<label for="stb" class="stb">Data:</label>
-<br>
+    <!-- Footer Logo -->
+    <div class="sandbox-footer">
+      <a href="index.html">
+        <img class="brand-logo" src="dlogo.png" alt="DMACC Bears Logo">
+      </a>
+    </div>
 
-<textarea id="stb" name="stb" rows="15" cols="52">
-</textarea>
+  </div>
 
-</div>
-
-</div>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<br>
-<img width="10%" src="dlogo.png" alt="DMACC Bears Logo">
   <script src="js/script.js"></script>
 </body>
 </html>
