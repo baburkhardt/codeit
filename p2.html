@@ -1,37 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+/* Draw Sandbox Specific Styling */
+.draw-card {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 100%;
+}
 
+.draw-header {
+  font-size: 1.1rem;
+  color: #130f40;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
 
-<br>
+.draw-divider {
+  width: 100%;
+  border: 0;
+  height: 1px;
+  background: #e1e8ed;
+  margin-bottom: 5px;
+}
 
-<div class="centered">
-<div id="drawb" class="drawbox">
+/* Overriding original drawbox to fit neatly inside the card */
+.drawbox {
+  background-color: #fafbfc;
+  height: 500px;
+  width: 500px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  user-select: none;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
 
+#canvas {
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
 
-    <b>Draw anything you want!</b> 
-    <hr> 
-    <canvas id="canvas"></canvas> 
-    <script src="draw.js"></script>
+.draw-controls {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
 
+.clear-btn {
+  background-color: #eb4d4b;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
 
-</div>
-
-    <div>
-        <input type="button" id="clear" value="Clear">
-    </div>
-
-</div>
-<div class="clear"></div>
-</div>
-<br>
-<img width="10%" src="dlogo.png" alt="DMACC Bears Logo">
-</body>
-</html>
+.clear-btn:hover {
+  opacity: 0.85;
+}
