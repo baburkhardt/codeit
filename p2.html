@@ -7,10 +7,34 @@
   <title>DMACC IT - Draw Sandbox (P2)</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* Ensures the canvas drawing surface is solid white */
+    /* Ensures the canvas drawing surface is solid white and scales cleanly */
     #canvas {
       background-color: #FFFFFF !important;
       border-radius: 4px;
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      aspect-ratio: 1 / 1;
+    }
+    /* Layout container for side-by-side canvas & legend */
+    .draw-workspace {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .legend-box {
+      background-color: #f1f5f9;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #1e293b;
+      border: 1px solid #cbd5e1;
+      line-height: 1.6;
+      max-width: 240px;
+      width: 100%;
     }
   </style>
 </head>
@@ -27,21 +51,31 @@
         </div>
         <hr class="draw-divider">
 
-        <!-- Instruction & Keyboard Legend Box -->
-        <div style="background-color: #f1f5f9; padding: 12px 16px; border-radius: 8px; font-size: 0.85rem; color: #1e293b; width: 100%; border: 1px solid #cbd5e1; line-height: 1.5; margin-bottom: 12px;">
-          🎨 <strong>Keyboard Controls Legend:</strong><br>
-          • <strong>Colors:</strong> Press <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">0</kbd> (Black), <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">1</kbd> (Red), <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">2</kbd> (Orange), <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">3</kbd> (Yellow), <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">4</kbd> (Green), <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">5</kbd> (Blue), or <kbd style="background:#e2e8f0; padding:2px 5px; border-radius:4px;">6</kbd> (Violet).<br>
-          • <strong>Line Thickness:</strong> Press <kbd style="background:#e2e8f0; padding:2px 6px; border-radius:4px;">&lt;</kbd> (Thin - 3px) or <kbd style="background:#e2e8f0; padding:2px 6px; border-radius:4px;">&gt;</kbd> (Thick - 15px).
-        </div>
-        
-        <!-- Canvas Container -->
-        <div id="drawb" class="drawbox">
-          <canvas id="canvas"></canvas>
-        </div>
+        <!-- Workspace: Canvas on Left, Compact Legend on Right -->
+        <div class="draw-workspace">
+          
+          <!-- Left Side: Canvas & Clear Button -->
+          <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+            <div id="drawb" class="drawbox">
+              <canvas id="canvas"></canvas>
+            </div>
+            <div class="draw-controls" style="width: 100%; display: flex; justify-content: center;">
+              <input type="button" id="clear" value="Clear Canvas" class="clear-btn">
+            </div>
+          </div>
 
-        <!-- Clear Button Controls -->
-        <div class="draw-controls">
-          <input type="button" id="clear" value="Clear Canvas" class="clear-btn">
+          <!-- Right Side: Concise Legend Box -->
+          <div class="legend-box">
+            <strong>Controls:</strong><br><br>
+            <strong>Colors (0–6):</strong><br>
+            <kbd>0</kbd> Black | <kbd>1</kbd> Red | <kbd>2</kbd> Orange<br>
+            <kbd>3</kbd> Yellow | <kbd>4</kbd> Green<br>
+            <kbd>5</kbd> Blue | <kbd>6</kbd> Violet<br><br>
+            <strong>Thickness:</strong><br>
+            <kbd>&lt;</kbd> Thin (3px)<br>
+            <kbd>&gt;</kbd> Thick (15px)
+          </div>
+
         </div>
 
       </div>
