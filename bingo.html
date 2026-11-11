@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Systems 3x3 BINGO Trainer</title>
-    <!-- Tailwind CSS for modern styling -->
+    <title>DMACC IT - Number Systems 3x3 BINGO Trainer</title>
+    <!-- Tailwind CSS for modern styling inside the card -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="css/style.css">
     <style>
         .bingo-grid {
             display: grid;
@@ -26,25 +28,27 @@
         }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col items-center p-4 md:p-8">
+<body class="sandbox-page">
 
-    <!-- Header -->
-    <header class="text-center mb-6 max-w-4xl">
-        <h1 class="text-3xl md:text-4xl font-extrabold text-indigo-400 mb-2">Number Systems 3x3 BINGO Trainer</h1>
-        <p class="text-slate-400 text-sm md:text-base">
-            Master Binary, Decimal, and Hexadecimal conversions (Values 0–15). Click squares to mark matches when your instructor calls out the equivalent value!
-        </p>
-    </header>
+  <div class="sandbox-container" style="max-width: 750px;">
 
-    <!-- Main Container -->
-    <main class="w-full max-w-2xl bg-slate-800 rounded-2xl shadow-2xl p-4 md:p-6 border border-slate-700">
+    <!-- Main Container Card -->
+    <main class="w-full bg-slate-800 rounded-xl shadow-2xl p-6 md:p-8 border border-slate-700 text-slate-100">
+
+        <!-- Header -->
+        <header class="text-center mb-6">
+            <h1 class="text-2xl md:text-3xl font-extrabold text-indigo-400 mb-2">Number Systems 3x3 BINGO Trainer</h1>
+            <p class="text-slate-300 text-sm md:text-base">
+                Master Binary, Decimal, and Hexadecimal conversions (Values 0–15). Click squares to mark matches when called out!
+            </p>
+        </header>
 
         <!-- Tab Navigation -->
         <div class="flex flex-wrap justify-center gap-2 mb-6 border-b border-slate-700 pb-4">
-            <button onclick="switchTab(0)" id="tab-btn-0" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-indigo-600 text-white shadow-md">1. Binary Board</button>
-            <button onclick="switchTab(1)" id="tab-btn-1" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-slate-700 text-slate-300 hover:bg-slate-600">2. Decimal Board</button>
-            <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-slate-700 text-slate-300 hover:bg-slate-600">3. Hex Board</button>
-            <button onclick="switchTab(3)" id="tab-btn-3" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-slate-700 text-slate-300 hover:bg-slate-600">4. Mixed Board</button>
+            <button onclick="switchTab(0)" id="tab-btn-0" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-indigo-600 text-white shadow-md cursor-pointer">1. Binary</button>
+            <button onclick="switchTab(1)" id="tab-btn-1" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-slate-700 text-slate-300 hover:bg-slate-600 cursor-pointer">2. Decimal</button>
+            <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-slate-700 text-slate-300 hover:bg-slate-600 cursor-pointer">3. Hex</button>
+            <button onclick="switchTab(3)" id="tab-btn-3" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-slate-700 text-slate-300 hover:bg-slate-600 cursor-pointer">4. Mixed</button>
         </div>
 
         <!-- Tab Content Area -->
@@ -54,14 +58,17 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="mt-8 text-center text-xs text-slate-500">
-        Computer Number Systems Educational Tool &bull; 3x3 BINGO Grid (Values 0 to 15)
-    </footer>
+    <!-- Footer Logo Linking Back to Hub -->
+    <div class="sandbox-footer">
+      <a href="index.html">
+        <img class="brand-logo" src="dlogo.png" alt="DMACC Bears Logo">
+      </a>
+    </div>
+
+  </div>
 
     <!-- JavaScript Application Logic -->
     <script>
-        // Board configurations for a 3x3 grid (9 cells)
         const tabsData = [
             {
                 id: 0,
@@ -120,7 +127,6 @@
         ];
 
         let activeTab = 0;
-        // Store boards state: array of 4 arrays, each containing 9 cell objects { display, value, marked }
         let boardsState = tabsData.map(() => generateNewBoard(tabsData[0].generator));
 
         function generateNewBoard(generatorFn) {
@@ -138,12 +144,11 @@
 
         function switchTab(index) {
             activeTab = index;
-            // Update tab button styles
             document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
                 if (idx === index) {
-                    btn.className = "tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-indigo-600 text-white shadow-md";
+                    btn.className = "tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-indigo-600 text-white shadow-md cursor-pointer";
                 } else {
-                    btn.className = "tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-slate-700 text-slate-300 hover:bg-slate-600";
+                    btn.className = "tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-slate-700 text-slate-300 hover:bg-slate-600 cursor-pointer";
                 }
             });
             renderTabContent();
@@ -160,21 +165,19 @@
                         <p class="text-sm text-slate-300 mt-1">${currentTab.desc}</p>
                     </div>
                     <div class="flex flex-wrap gap-2 shrink-0">
-                        <button onclick="clearMarks(${activeTab})" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-white text-xs font-semibold rounded-lg transition shadow">Clear Marks</button>
-                        <button onclick="rerandomizeBoard(${activeTab})" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-lg transition shadow">Re-randomize</button>
+                        <button onclick="clearMarks(${activeTab})" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-white text-xs font-semibold rounded-lg transition shadow cursor-pointer">Clear Marks</button>
+                        <button onclick="rerandomizeBoard(${activeTab})" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-lg transition shadow cursor-pointer">Re-randomize</button>
                     </div>
                 </div>
 
-                <!-- Practice Caller Helper Box -->
                 <div class="bg-slate-900 p-4 rounded-xl border border-indigo-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div>
                         <span class="text-xs uppercase tracking-wider text-indigo-400 font-bold block">Instructor Practice Caller</span>
                         <div id="caller-display-${activeTab}" class="text-base font-mono font-bold text-slate-200 mt-0.5">Click "Draw Call" to simulate an instructor call</div>
                     </div>
-                    <button onclick="drawCaller(${activeTab})" class="w-full sm:w-auto px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-lg transition shadow">Draw Call</button>
+                    <button onclick="drawCaller(${activeTab})" class="w-full sm:w-auto px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-lg transition shadow cursor-pointer">Draw Call</button>
                 </div>
 
-                <!-- 3x3 BINGO Grid -->
                 <div class="bingo-grid bg-slate-900 p-4 rounded-xl border border-slate-700 shadow-inner">
             `;
 
@@ -219,7 +222,6 @@
             }
         }
 
-        // Initial render on page load
         renderTabContent();
     </script>
 </body>
