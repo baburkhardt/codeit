@@ -137,3 +137,77 @@ body {
   display: flex;
   gap: 8px;
 }
+/* Sandbox Page Layout Fixes (for p1.html & p2.html) */
+body.sandbox-page {
+  height: auto;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #0A2240;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.sandbox-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.sandbox-grid {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-left, .col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card Styling for Sandbox Elements */
+.textbox-card, .stopwatch-card, .statbox-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textbox-card textarea, .statbox-card textarea {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+  margin-top: 10px;
+}
+
+.textbox-card textarea:focus, .statbox-card textarea:focus {
+  border-color: #2980b9;
+}
+
+.sandbox-footer {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.brand-logo {
+  width: 80px;
+  height: auto;
+  transition: opacity 0.2s;
+}
+
+.brand-logo:hover {
+  opacity: 0.8;
+}
