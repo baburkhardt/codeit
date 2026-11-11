@@ -39,11 +39,10 @@ const handleKeyboard = event => {
   } 
 
   // Absolute line thickness specification using < and > keys 
-  // (handles both shifted characters and raw comma/period keys)
   if (event.key === '<' || event.key === ',') {
-     currwidth = 3;  // Absolute Thin size (3px)
+     currwidth = 3;  // Thin size (3px)
   } else if (event.key === '>' || event.key === '.') {
-     currwidth = 15; // Absolute Thick size (15px)
+     currwidth = 15; // Thick size (15px)
   }
 };
     
@@ -64,12 +63,13 @@ let coord = {x:0 , y:0};
 // trigger drawing 
 let paint = false;    
     
-// Updates the coordinates of the cursor when  
-// an event e is triggered to the coordinates where  
-// the said event is triggered. 
+// Precision coordinate calculation factoring in CSS scaling & bounding box rects
 function getPosition(event){ 
-  coord.x = event.clientX - canvas.offsetLeft; 
-  coord.y = event.clientY - canvas.offsetTop; 
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  coord.x = (event.clientX - rect.left) * scaleX; 
+  coord.y = (event.clientY - rect.top) * scaleY; 
 } 
   
 // The following functions toggle the flag to start 
