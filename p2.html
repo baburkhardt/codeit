@@ -1,73 +1,48 @@
-/* Draw Sandbox Specific Styling */
-.draw-card {
-  background-color: #fff;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  max-width: 100%;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DMACC IT - Draw Sandbox (P2)</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="sandbox-page">
 
-.draw-header {
-  font-size: 1.1rem;
-  color: #130f40;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
+  <div class="sandbox-container">
 
-.draw-divider {
-  width: 100%;
-  border: 0;
-  height: 1px;
-  background: #e1e8ed;
-  margin-bottom: 5px;
-}
+    <!-- Drawing Sandbox Card -->
+    <div class="sandbox-grid" style="justify-content: center;">
+      <div class="draw-card">
+        
+        <div class="draw-header">
+          <b>Draw anything you want!</b>
+        </div>
+        <hr class="draw-divider">
+        
+        <!-- Canvas Container matching your original ID and structure -->
+        <div id="drawb" class="drawbox">
+          <canvas id="canvas"></canvas>
+        </div>
 
-/* Overriding original drawbox to fit neatly inside the card */
-.drawbox {
-  background-color: #fafbfc;
-  height: 500px;
-  width: 500px;
-  border: 2px dashed #cbd5e1;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  user-select: none;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
-}
+        <!-- Controls -->
+        <div class="draw-controls">
+          <input type="button" id="clear" value="Clear Canvas" class="clear-btn">
+        </div>
 
-#canvas {
-  width: 100%;
-  height: 100%;
-  cursor: crosshair;
-  background-color: #ffffff;
-  border-radius: 4px;
-}
+      </div>
+    </div>
 
-.draw-controls {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
+    <!-- Footer Logo -->
+    <div class="sandbox-footer">
+      <a href="index.html">
+        <img class="brand-logo" src="dlogo.png" alt="DMACC Bears Logo">
+      </a>
+    </div>
 
-.clear-btn {
-  background-color: #eb4d4b;
-  color: white;
-  border: none;
-  padding: 8px 20px;
-  border-radius: 5px;
-  font-weight: 600;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-}
+  </div>
 
-.clear-btn:hover {
-  opacity: 0.85;
-}
+  <!-- Scripts -->
+  <script src="draw.js"></script>
+</body>
+</html>
