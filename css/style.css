@@ -1,17 +1,17 @@
-@import 
-url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-
 }
+
 @font-face {
   font-family: 'Digital-7';
   src: url('digital-7.ttf');
 }
+
 body{
   background-color: #0A2240;
   height: 100vh;
@@ -32,8 +32,7 @@ body{
   flex-direction: column;
   user-select: none;
   cursor: pointer;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 
-0px 0px 8px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
 
 .stattextbox{
@@ -46,20 +45,17 @@ body{
   align-items: center;
   flex-direction: column;
   user-select: none;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 
-0px 0px 8px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
 
 .logodiv{
-
   border-radius: 5px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
   user-select: none;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 
-0px 0px 8px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
 
 .box{
@@ -73,10 +69,8 @@ body{
   flex-direction: column;
   user-select: none;
   cursor: pointer;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 
-0px 0px 8px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
-
 
 .drawbox{
   background-color: #fff;
@@ -88,43 +82,34 @@ body{
   flex-direction: column;
   user-select: none;
   cursor: pointer;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 
-0px 0px 8px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
 
-
 .centered{
- display: flex;
-
+  display: flex;
 }
 
 .columns{
- display: flex;
-
+  display: flex;
 }
 
 .rcol{
- display: inline;
-
+  display: inline;
 }
 .lcol{
- display: inline;
-
+  display: inline;
 }
-
-
 
 .boxi{
   background-color: #fff;
+  padding: 30px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   user-select: none;
-  cursor: pointer;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 
-0px 0px 8px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
 
 .frame{
@@ -135,47 +120,94 @@ body{
 .framei{
   display: flex;
   gap: 4px;
+  margin-bottom: 20px;
 }
 
 h3{
   font-weight: 500;
-  color:#130f40;
+  color: #130f40;
   text-transform: uppercase;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  text-align: center;
 }
+
+/* New Category Layout Styles */
+.buttonsi {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.button-category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f7f9fa;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #e1e8ed;
+  width: 100%;
+}
+
+.category-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.sub-buttons {
+  display: flex;
+  gap: 10px;
+}
+
 .hrs,
 .min,
 .sec,
 .ms,
 .colon{
-width: 50px;
-height: 50px;
-font-size: 50px;
-text-align: center;
-line-height: 50px;
-color: #eb4d4b;
-font-family: 'Digital-7';
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
+  text-align: center;
+  line-height: 50px;
+  color: #eb4d4b;
+  font-family: 'Digital-7';
 }
 .colon{
-width: 10px;
-height: 50px;
+  width: 10px;
+  height: 50px;
 }
+
 .buttons{
   margin-top: 25px;
 }
-.buttons button{
- border: none;
- padding: 5px 20px;
- color:white;
- border-radius: 3px;
- text-transform: uppercase;
+.buttons button,
+.buttonsi button{
+  border: none;
+  padding: 8px 20px;
+  color: white;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.buttonsi button:hover {
+  opacity: 0.85;
 }
 
 .start{background-color: #6ab04c;}
 .stop{background-color: #30336b;}
-.reset{background-color:  #eb4d4b;}
-.one{background-color:  #898c8d; gap: 3px;}
-.two{background-color:  #898c8d; gap: 3px;}
+.reset{background-color: #eb4d4b;}
+
+/* Button Specific Colors */
+.one{background-color: #4a90e2;}
+.two{background-color: #f5a623;}
+.bingo-btn{background-color: #6ab04c; width: 100%;}
 
 .start-active,
 .stop-active{
