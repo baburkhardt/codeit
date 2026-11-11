@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,205 +12,128 @@
   src: url('digital-7.ttf');
 }
 
-body{
+body {
   background-color: #0A2240;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
-.textbox{
+/* Main Dashboard Wrapper */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 520px;
+  user-select: none;
+}
+
+/* Logo Box Style */
+.logo-box {
   background-color: #fff;
-  height: 600px;
-  width: 400px;
-  border-radius: 5px;
+  padding: 25px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  user-select: none;
-  cursor: pointer;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-.stattextbox{
-  background-color: #fff;
-  height: 400px;
-  width: 400px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  user-select: none;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-}
-
-.logodiv{
-  border-radius: 5px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  user-select: none;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-}
-
-.box{
-  background-color: #fff;
-  height: 200px;
-  width: 400px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  user-select: none;
-  cursor: pointer;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-}
-
-.drawbox{
-  background-color: #fff;
-  height: 600px;
-  width: 600px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  user-select: none;
-  cursor: pointer;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-}
-
-.centered{
-  display: flex;
-}
-
-.columns{
-  display: flex;
-}
-
-.rcol{
-  display: inline;
-}
-.lcol{
-  display: inline;
-}
-
-.boxi{
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  user-select: none;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-}
-
-.frame{
-  display: flex;
-  gap: 3px;
-}
-
-.framei{
-  display: flex;
-  gap: 4px;
-  margin-bottom: 20px;
-}
-
-h3{
-  font-weight: 500;
-  color: #130f40;
+.logo-box h3 {
+  font-weight: 600;
+  color: #0A2240;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
 }
 
-/* New Category Layout Styles */
-.buttonsi {
+.framei img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Two Categories Grid Layout */
+.categories-grid {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 100%;
 }
 
-.button-category {
+/* Individual Category Cards */
+.category-box {
+  background-color: #fff;
+  padding: 20px 25px;
+  border-radius: 10px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  background: #f7f9fa;
-  padding: 12px;
-  border-radius: 4px;
-  border: 1px solid #e1e8ed;
-  width: 100%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.category-title {
-  font-size: 13px;
+.category-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.category-content {
+  flex: 1;
+  padding-right: 15px;
+}
+
+.category-content h4 {
+  font-size: 1rem;
   font-weight: 600;
-  color: #555;
-  text-transform: uppercase;
-  margin-bottom: 8px;
+  color: #130f40;
+  margin-bottom: 4px;
 }
 
-.sub-buttons {
-  display: flex;
-  gap: 10px;
+.category-content p {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.4;
 }
 
-.hrs,
-.min,
-.sec,
-.ms,
-.colon{
-  width: 50px;
-  height: 50px;
-  font-size: 50px;
-  text-align: center;
-  line-height: 50px;
-  color: #eb4d4b;
-  font-family: 'Digital-7';
-}
-.colon{
-  width: 10px;
-  height: 50px;
-}
-
-.buttons{
-  margin-top: 25px;
-}
-.buttons button,
-.buttonsi button{
-  border: none;
-  padding: 8px 20px;
+/* Navigation & Action Buttons */
+.nav-btn {
+  text-decoration: none;
+  padding: 10px 20px;
   color: white;
-  border-radius: 3px;
+  border-radius: 6px;
   text-transform: uppercase;
-  font-weight: 500;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
 }
 
-.buttonsi button:hover {
-  opacity: 0.85;
+.nav-btn:hover {
+  opacity: 0.9;
 }
 
-.start{background-color: #6ab04c;}
-.stop{background-color: #30336b;}
-.reset{background-color: #eb4d4b;}
+/* Button Color Theme */
+.bingo-link {
+  background-color: #27ae60;
+}
 
-/* Button Specific Colors */
-.one{background-color: #4a90e2;}
-.two{background-color: #f5a623;}
-.bingo-btn{background-color: #6ab04c; width: 100%;}
+.type-link {
+  background-color: #2980b9;
+}
 
-.start-active,
-.stop-active{
-  pointer-events: none;
-  opacity: 0.5;
+.draw-link {
+  background-color: #e67e22;
+}
+
+/* Dual Buttons Container for Type-N-Click */
+.dual-buttons {
+  display: flex;
+  gap: 8px;
 }
