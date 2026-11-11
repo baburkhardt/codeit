@@ -11,11 +11,27 @@
     <div class="boxi">
       <h3>Welcome to DMACC IT: Type-N-Click!</h3>
       <div class="framei">
-<a href="https://www.dmacc.edu/pathways/it/index.html"> <img src="dmaccit.jpg" alt="DMACC IT PATHWAY LOGO"></a>
+        <a href="https://www.dmacc.edu/pathways/it/index.html"> <img src="dmaccit.jpg" alt="DMACC IT PATHWAY LOGO"></a>
       </div>
+      
+      <!-- Button Categories -->
       <div class="buttonsi">
-        <button onclick="window.location.href='p1.html'" class="one" >ONE</button>
-        <button onclick="window.location.href='p2.html'" class="two" >TWO</button>
+        <!-- Category 1: Number Systems Bingo -->
+        <div class="button-category">
+          <span class="category-title">Number Systems Bingo</span>
+          <button onclick="window.location.href='bingo.html'" class="bingo-btn">Play Bingo</button>
+        </div>
+
+        <!-- Category 2: Type-N-Click -->
+        <div class="button-category">
+          <span class="category-title">Type-N-Click</span>
+          <div class="sub-buttons">
+            <!-- Type corresponds to the current "ONE" (p1.html) -->
+            <button onclick="window.location.href='p1.html'" class="one">Type</button>
+            <!-- Draw corresponds to the current "TWO" (p2.html) -->
+            <button onclick="window.location.href='p2.html'" class="two">Draw</button>
+          </div>
+        </div>
       </div>
     </div>
   <script src="js/script.js"></script>
