@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Systems 3x3 BINGO Trainer</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .bingo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .bingo-cell {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            user-select: none;
+            transition: all 0.15s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col items-center p-4 md:p-8">
+
+    <!-- Header -->
+    <header class="text-center mb-6 max-w-4xl">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-indigo-400 mb-2">Number Systems 3x3 BINGO Trainer</h1>
+        <p class="text-slate-400 text-sm md:text-base">
+            Master Binary, Decimal, and Hexadecimal conversions (Values 0–15). Click squares to mark matches when your instructor calls out the equivalent value!
+        </p>
+    </header>
+
+    <!-- Main Container -->
+    <main class="w-full max-w-2xl bg-slate-800 rounded-2xl shadow-2xl p-4 md:p-6 border border-slate-700">
+
+        <!-- Tab Navigation -->
+        <div class="flex flex-wrap justify-center gap-2 mb-6 border-b border-slate-700 pb-4">
+            <button onclick="switchTab(0)" id="tab-btn-0" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-indigo-600 text-white shadow-md">1. Binary Board</button>
+            <button onclick="switchTab(1)" id="tab-btn-1" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-slate-700 text-slate-300 hover:bg-slate-600">2. Decimal Board</button>
+            <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-slate-700 text-slate-300 hover:bg-slate-600">3. Hex Board</button>
+            <button onclick="switchTab(3)" id="tab-btn-3" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-slate-700 text-slate-300 hover:bg-slate-600">4. Mixed Board</button>
+        </div>
+
+        <!-- Tab Content Area -->
+        <div id="tab-content" class="space-y-6">
+            <!-- Dynamically populated by JavaScript -->
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-8 text-center text-xs text-slate-500">
+        Computer Number Systems Educational Tool &bull; 3x3 BINGO Grid (Values 0 to 15)
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Board configurations for a 3x3 grid (9 cells)
+        const tabsData = [
+            {
+                id: 0,
+                title: "Binary Board",
+                desc: "Board cells contain **4-bit Binary values**. Instructor calls out **Decimal or Hexadecimal** values.",
+                generator: () => {
+                    const val = Math.floor(Math.random() * 16);
+                    return {
+                        display: val.toString(2).padStart(4, '0'),
+                        value: val
+                    };
+                },
+                callerPrompt: (val) => `Call out: Decimal ${val} OR Hex ${val.toString(16).toUpperCase()}`
+            },
+            {
+                id: 1,
+                title: "Decimal Board",
+                desc: "Board cells contain **Decimal values (0–15)**. Instructor calls out **Binary or Hexadecimal** values.",
+                generator: () => {
+                    const val = Math.floor(Math.random() * 16);
+                    return {
+                        display: val.toString(10),
+                        value: val
+                    };
+                },
+                callerPrompt: (val) => `Call out: Binary ${val.toString(2).padStart(4, '0')} OR Hex ${val.toString(16).toUpperCase()}`
+            },
+            {
+                id: 2,
+                title: "Hexadecimal Board",
+                desc: "Board cells contain **Hexadecimal values (0x0–0xF)**. Instructor calls out **Decimal or Binary** values.",
+                generator: () => {
+                    const val = Math.floor(Math.random() * 16);
+                    return {
+                        display: '0x' + val.toString(16).toUpperCase(),
+                        value: val
+                    };
+                },
+                callerPrompt: (val) => `Call out: Decimal ${val} OR Binary ${val.toString(2).padStart(4, '0')}`
+            },
+            {
+                id: 3,
+                title: "Mixed Board",
+                desc: "Board cells contain a **mix of Binary and Hexadecimal** values. Instructor calls out **Decimal** values (0–15).",
+                generator: () => {
+                    const val = Math.floor(Math.random() * 16);
+                    const useHex = Math.random() < 0.5;
+                    const display = useHex ? ('0x' + val.toString(16).toUpperCase()) : val.toString(2).padStart(4, '0');
+                    return {
+                        display: display,
+                        value: val
+                    };
+                },
+                callerPrompt: (val) => `Call out: Decimal ${val}`
+            }
+        ];
+
+        let activeTab = 0;
+        // Store boards state: array of 4 arrays, each containing 9 cell objects { display, value, marked }
+        let boardsState = tabsData.map(() => generateNewBoard(tabsData[0].generator));
+
+        function generateNewBoard(generatorFn) {
+            let board = [];
+            for (let i = 0; i < 9; i++) {
+                let cellData = generatorFn();
+                board.push({
+                    display: cellData.display,
+                    value: cellData.value,
+                    marked: false
+                });
+            }
+            return board;
+        }
+
+        function switchTab(index) {
+            activeTab = index;
+            // Update tab button styles
+            document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+                if (idx === index) {
+                    btn.className = "tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-indigo-600 text-white shadow-md";
+                } else {
+                    btn.className = "tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-slate-700 text-slate-300 hover:bg-slate-600";
+                }
+            });
+            renderTabContent();
+        }
+
+        function renderTabContent() {
+            const currentTab = tabsData[activeTab];
+            const board = boardsState[activeTab];
+
+            let html = `
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-slate-900/50 p-4 rounded-xl border border-slate-700/60">
+                    <div>
+                        <h2 class="text-lg font-bold text-indigo-300">${currentTab.title}</h2>
+                        <p class="text-sm text-slate-300 mt-1">${currentTab.desc}</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 shrink-0">
+                        <button onclick="clearMarks(${activeTab})" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-white text-xs font-semibold rounded-lg transition shadow">Clear Marks</button>
+                        <button onclick="rerandomizeBoard(${activeTab})" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-lg transition shadow">Re-randomize</button>
+                    </div>
+                </div>
+
+                <!-- Practice Caller Helper Box -->
+                <div class="bg-slate-900 p-4 rounded-xl border border-indigo-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-indigo-400 font-bold block">Instructor Practice Caller</span>
+                        <div id="caller-display-${activeTab}" class="text-base font-mono font-bold text-slate-200 mt-0.5">Click "Draw Call" to simulate an instructor call</div>
+                    </div>
+                    <button onclick="drawCaller(${activeTab})" class="w-full sm:w-auto px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-lg transition shadow">Draw Call</button>
+                </div>
+
+                <!-- 3x3 BINGO Grid -->
+                <div class="bingo-grid bg-slate-900 p-4 rounded-xl border border-slate-700 shadow-inner">
+            `;
+
+            board.forEach((cell, idx) => {
+                let bgClass = cell.marked 
+                    ? "bg-indigo-600 text-white border-indigo-400 shadow-lg scale-[0.98]" 
+                    : "bg-slate-800 text-slate-200 border-slate-700 hover:bg-slate-700 hover:border-slate-500";
+                
+                html += `
+                    <div onclick="toggleCell(${activeTab}, ${idx})" 
+                         class="bingo-cell rounded-xl border cursor-pointer select-none text-center p-2 font-mono ${bgClass}">
+                        ${cell.display}
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            document.getElementById('tab-content').innerHTML = html;
+        }
+
+        function toggleCell(tabIdx, cellIdx) {
+            boardsState[tabIdx][cellIdx].marked = !boardsState[tabIdx][cellIdx].marked;
+            renderTabContent();
+        }
+
+        function clearMarks(tabIdx) {
+            boardsState[tabIdx].forEach(cell => cell.marked = false);
+            renderTabContent();
+        }
+
+        function rerandomizeBoard(tabIdx) {
+            boardsState[tabIdx] = generateNewBoard(tabsData[tabIdx].generator);
+            renderTabContent();
+        }
+
+        function drawCaller(tabIdx) {
+            const randomVal = Math.floor(Math.random() * 16);
+            const promptText = tabsData[tabIdx].callerPrompt(randomVal);
+            const displayEl = document.getElementById(`caller-display-${tabIdx}`);
+            if (displayEl) {
+                displayEl.innerHTML = `<span class="text-emerald-400 font-extrabold">${promptText}</span>`;
+            }
+        }
+
+        // Initial render on page load
+        renderTabContent();
+    </script>
+</body>
+</html>
