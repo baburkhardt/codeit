@@ -34,6 +34,17 @@
                 font-size: 1.75rem;
             }
         }
+        /* Guaranteed bubble padding & styling for action buttons */
+        .bingo-btn {
+            padding: 12px 24px !important;
+            font-size: 0.875rem !important;
+            font-weight: 600 !important;
+            border-radius: 12px !important;
+            cursor: pointer !important;
+            transition: all 0.15s ease-in-out !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+            white-space: nowrap !important;
+        }
     </style>
 </head>
 <body class="sandbox-page">
@@ -177,8 +188,8 @@
                         <p class="text-xs md:text-sm text-slate-300 mt-1">${currentTab.desc}</p>
                     </div>
                     <div class="flex flex-wrap gap-3 shrink-0 w-full md:w-auto justify-end">
-                        <button onclick="clearMarks(${activeTab})" class="px-5 py-3 bg-amber-600 hover:bg-amber-500 text-white text-xs md:text-sm font-semibold rounded-xl transition shadow-md cursor-pointer">Clear Marks</button>
-                        <button onclick="rerandomizeBoard(${activeTab})" class="px-5 py-3 bg-indigo-600 hover:bg-indigo-500 text-white text-xs md:text-sm font-semibold rounded-xl transition shadow-md cursor-pointer">Re-randomize</button>
+                        <button onclick="clearMarks(${activeTab})" class="bingo-btn bg-amber-600 hover:bg-amber-500 text-white">Clear Marks</button>
+                        <button onclick="rerandomizeBoard(${activeTab})" class="bingo-btn bg-indigo-600 hover:bg-indigo-500 text-white">Re-randomize</button>
                     </div>
                 </div>
 
@@ -188,7 +199,7 @@
                         <span class="text-xs uppercase tracking-wider text-indigo-400 font-bold block">Instructor Practice Caller</span>
                         <div id="caller-display-${activeTab}" class="text-sm md:text-base font-mono font-bold text-slate-200 mt-0.5">Click "Draw Call" to simulate an instructor call</div>
                     </div>
-                    <button onclick="drawCaller(${activeTab})" class="w-full sm:w-auto px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-xl transition shadow-md cursor-pointer shrink-0">Draw Call</button>
+                    <button onclick="drawCaller(${activeTab})" class="bingo-btn bg-emerald-600 hover:bg-emerald-500 text-white w-full sm:w-auto shrink-0">Draw Call</button>
                 </div>
 
                 <!-- 3x3 BINGO Grid -->
